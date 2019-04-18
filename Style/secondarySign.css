@@ -1,0 +1,45 @@
+#loginForm {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#loginF {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 2px solid grey;
+    width: 60%;
+    text-align: center;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+#formTitle {
+    width: 100%;
+    background-color: whitesmoke;
+    height: auto;
+    padding: 1px;
+}
+ #loginF>h2 {
+     font-size: 25px;
+ }
+
+ #loginF>p {
+     text-wrap: normal;
+ }
+
+ #formFields {
+     width: 80%;
+     background-color: whitesmoke;
+     height: auto;
+     padding: 1px;
+     margin-top: 5px;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ label {
+
+ }
+
+

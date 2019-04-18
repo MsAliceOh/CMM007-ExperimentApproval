@@ -1,0 +1,33 @@
+.application {
+    border-radius: 10px;
+    background: whitesmoke;
+    padding: 10px;
+    margin: 10px;
+}
+
+#acc {
+    background-color: green;
+    text-align: center;
+    color: white;
+    width: auto;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#dec {
+    background-color: red;
+    text-align: center;
+    color: white;
+    width: auto;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#OS {
+    background-color: cornflowerblue;
+    text-align: center;
+    color: white;
+    width: auto;
+    padding: 5px;
+    border-radius: 10px;
+}

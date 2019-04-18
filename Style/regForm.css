@@ -1,0 +1,76 @@
+form, .content {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.input {
+    margin: 10px 0px 10px 0px;
+}
+
+#title {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.input label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+    font-size: 18px;
+}
+
+.input input {
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.input textarea {
+    height: 250px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    resize: none;
+}
+
+.fakeButton {
+    font-size: 20px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error {
+    width: 92%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.success {
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+}
+
+select {
+    font-size: 20px;
+    width: 500px;
+}

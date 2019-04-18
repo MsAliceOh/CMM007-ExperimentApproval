@@ -1,0 +1,52 @@
+.login {
+    margin: 15px;
+    float: right;
+}
+
+#loginT, th, td {
+    padding: 3px;
+    font-size: 18px;
+}
+
+#loginButton {
+    margin-left: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 8px;
+    padding-left: 8px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.buttonForm {
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.fakeButton {
+    width:90%;
+    text-wrap: normal;
+    font-size: 30px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #4a86a0;
+    color: white;
+}
+
+#science {
+    width: 90%;
+    margin-top: 30px;
+}
+
+#picHolder {
+    margin: 0 auto;
+    text-align: center;
+}
