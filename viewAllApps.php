@@ -66,10 +66,40 @@ if ( !isset( $_SESSION['user'])) {
 
         <table id="allApps" class = "table table-striped table-bordered">
             <thead>
+            <h2>All Applications</h2>
             <tr>
                 <td>StudentID</td>
                 <td>First Name</td>
                 <td>Last Name</td>
+                <td>ApplicationID</td>
+                <td>Referred (0 = no, 1 = yes)</td>
+            </tr>
+            </thead>
+            <?php
+            $query = "SELECT S.stID, S.fname, S.lname, A.appID, A.stID, A.title, A.referred
+                FROM student S, application A
+                WHERE S.stID = A.stID";
+            $result = mysqli_query($db, $query);
+            while ($row = mysqli_fetch_array($result)) {
+                ?>
+                <tr>
+                    <td><?php echo $row['stID'] ?></td>
+                    <td><?php echo $row['fname'] ?></td>
+                    <td><?php echo $row['lname'] ?></td>
+                    <td><?php echo $row['appID'] ?></td>
+                    <td><?php echo $row['referred'] ?></td>
+                </tr>
+                <?php
+            }?>
+
+        </table>
+
+
+        <table id="ref" class = "table table-striped table-bordered">
+            <thead>
+            <h2>Referred Applications</h2>
+            <tr>
+                <td>StudentID</td>
                 <td>ApplicationID</td>
                 <td>Reviewer 1</td>
                 <td>Reviewer 1 Decision</td>
@@ -80,7 +110,7 @@ if ( !isset( $_SESSION['user'])) {
             </tr>
             </thead>
                 <?php
-                $query = "SELECT S.stID, S.fname, S.lname, A.appID, A.stID, A.title, R.appID, R.Reviewer1, R.Reviewer2, D.appID, D.review1Dec, D.review1Com, D.review2Dec, D.review2Com
+                $query = "SELECT S.stID, A.appID, A.stID, A.title, R.appID, R.Reviewer1, R.Reviewer2, D.appID, D.review1Dec, D.review1Com, D.review2Dec, D.review2Com
                 FROM student S, application A, applicationreferal R, applicationdec D
                 WHERE S.stID = A.stID AND A.appID = R.appID AND R.appID = D.appID";
                 $result = mysqli_query($db, $query);
@@ -88,8 +118,6 @@ if ( !isset( $_SESSION['user'])) {
                 ?>
             <tr>
                 <td><?php echo $row['stID'] ?></td>
-                <td><?php echo $row['fname'] ?></td>
-                <td><?php echo $row['lname'] ?></td>
                 <td><?php echo $row['appID'] ?></td>
                 <td><?php echo $row['Reviewer1'] ?></td>
                 <td><?php echo $row['review1Dec'] ?></td>
@@ -111,5 +139,10 @@ if ( !isset( $_SESSION['user'])) {
 <script>
     $(document).ready(function(){
         $('#allApps').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#ref').DataTable();
     });
 </script>

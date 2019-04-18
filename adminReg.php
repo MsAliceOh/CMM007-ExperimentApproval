@@ -51,5 +51,11 @@ if (isset($_POST['register'])) {
 
         mysqli_query($db, $query);
 
+        $query2 = "INSERT INTO admin (staffID, fname, lname) 
+VALUES ('$username', '$fname', '$lname')";
+        mysqli_query($db, $query2);
+
+        echo "Registration Success";
+
     }
 }

@@ -17,12 +17,13 @@ if (isset($_POST['refer'])) {
 
     else {
 
-        $query = "INSERT INTO applicationreferal (appID, Reviewer1, Reviewer2) VALUES ('$app', '$EAO1','$EAO2')";
+        $query = "INSERT INTO applicationreferal (appID, Reviewer1, complete1, Reviewer2, complete2) VALUES ('$app', '$EAO1',0,'$EAO2',0)";
         mysqli_query($db, $query);
         $query2 = "UPDATE application SET referred = 1 WHERE appID = '$app'";
         mysqli_query($db, $query2);
-        $query3 = "INSERT INTO applicationdec (appID) VALUES ('$app')";
-        header ('adminHomepage.php');
+        $query3 = "INSERT INTO applicationdec (appID ) VALUES ('$app')";
+        mysqli_query($db, $query3);
+        header ('location: adminHomepage.php');
 
     }
 }

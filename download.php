@@ -11,10 +11,11 @@ header('Pragma: public');
 header('Content-Length: ' . filesize($name));
 ob_clean();
 flush();
-/*
-readfile("C:/inetpub/wwwroot/1808957/CMM007-ExperimentApproval/docUpload/".$name); //showing the path to the server where the file is to be download
-*/
 
+readfile("C:/inetpub/wwwroot/1808957/CMM007-ExperimentApproval/docUpload/".$name); //showing the path to the server where the file is to be download
+
+/*
 readfile("C:/xampp/htdocs/CMM007-ExperimentApproval/docUpload".$name); //showing the path to the server where the file is to be download
+*/
 
 exit;

@@ -18,16 +18,15 @@ if (isset($_POST['register'])) {
     $pass2 = mysqli_real_escape_string($db, $_POST['pass2']);
 
 
-    $targetDir = "C:/xampp/htdocs/CMM007-ExperimentApproval/docUpload/";
-    /* $targetDir = "C:/inetpub/wwwroot/1808957/CMM007-ExperimentApproval/docUpload/"; */
-    $fileName1 = basename($_FILES["file1"]["name"]);
-    $targetFilePath = $targetDir . $fileName1;
-    $fileName2 = basename($_FILES["file2"]["name"]);
-    $targetFilePath = $targetDir . $fileName2;
-    $fileName3 = basename($_FILES["file3"]["name"]);
-    $targetFilePath = $targetDir . $fileName3;
-    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+    /*$targetDir = "C:/xampp/htdocs/CMM007-ExperimentApproval/docUpload/";*/
 
+    $targetDir = "C:/inetpub/wwwroot/CMM007-ExperimentApproval/docUpload/";
+    $fileName1 = basename($_FILES["file1"]["name"]);
+    $targetFilePath1 = $targetDir . $fileName1;
+    $fileName2 = basename($_FILES["file2"]["name"]);
+    $targetFilePath2 = $targetDir . $fileName2;
+    $fileName3 = basename($_FILES["file3"]["name"]);
+    $targetFilePath3 = $targetDir . $fileName3;
 
     if (empty($username)) { array_push($errors, "Username is required"); }
     if (empty($email)) { array_push($errors, "Email is required"); }
@@ -70,9 +69,9 @@ if (isset($_POST['register'])) {
 
         mysqli_query($db, $query2);
 
-        move_uploaded_file($_FILES["file1"]["tmp_name"], $targetFilePath);
-        move_uploaded_file($_FILES["file2"]["tmp_name"], $targetFilePath);
-        move_uploaded_file($_FILES["file3"]["tmp_name"], $targetFilePath);
+        move_uploaded_file($_FILES["file1"]["tmp_name"], $targetFilePath1);
+        move_uploaded_file($_FILES["file2"]["tmp_name"], $targetFilePath2);
+        move_uploaded_file($_FILES["file3"]["tmp_name"], $targetFilePath3);
 
         $query3 = "INSERT INTO application (stID, title, description, funding, outline, consent, additionalDocs, referred)
 VALUES ('$username','$title', '$desc', '$fund','$fileName1','$fileName2','$fileName3', 0)";
