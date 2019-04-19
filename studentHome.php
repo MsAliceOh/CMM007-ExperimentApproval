@@ -143,6 +143,7 @@ if ( !isset( $_SESSION['user'])) {
                     $r2 = $row['review2Dec'];
                     $r1c = $row['review1Com'];
                     $r2c = $row['review2Com'];
+                    $fd = $row['finalDec'];
                 }
 
                 if (is_null($r1)) {
@@ -153,7 +154,7 @@ if ( !isset( $_SESSION['user'])) {
                     echo "<div id = " . 'OS' . ">
             <p>Application Decision Outstanding</p>
             </div>";
-                } else if ($r1 == 1 && $r2 == 1) {
+                } else if ($fd == 1) {
                     echo "<div id = " . 'acc' . ">
             <p>Application Approval Accepted</p>
         </div>";
@@ -165,31 +166,7 @@ if ( !isset( $_SESSION['user'])) {
             <p>";
                     echo $r2c;
                     "</p>";
-                } else if ($r1 == 1 && $r2 == 0) {
-                    echo "<div id = " . 'dec' . ">
-            <p>Application Approval Declined</p>
-        </div>";
-                    echo "<h2>Reviewer 1 Comments: </h2>
-            <p>";
-                    echo $r1c;
-                    "</p>";
-                    echo "<h2>Reviewer 2 Comments: </h2>
-            <p>";
-                    echo $r2c;
-                    "</p>";
-                } else if ($r1 == 0 && $r2 == 1) {
-                    echo "<div id = " . 'dec' . ">
-            <p>Application Approval Declined</p>
-        </div>";
-                    echo "<h2>Reviewer 1 Comments: </h2>
-            <p>";
-                    echo $r1c;
-                    "</p>";
-                    echo "<h2>Reviewer 2 Comments: </h2>
-            <p>";
-                    echo $r2c;
-                    "</p>";
-                } else if ($r1 == 0 && $r2 == 0) {
+                } else if ($fd == 0) {
                     echo "<div id = " . 'dec' . ">
             <p>Application Approval Declined</p>
         </div>";
