@@ -64,7 +64,7 @@ include ('login.php')
     <input type="submit" name="login" value="login" class = "fakeButton">
     </div>
     <div class = "input">
-        <p>If you don't have an account, sign up <a href = "../../../../xampp/htdocs/CMM007-ExperimentApproval/ethicalApp.html">here</a> or contact an administrator</p>
+        <p>If you don't have an account, sign up <a href = "newEthicalApp.php">here</a> or contact an administrator</p>
     </div>
 </form>
     </div>
