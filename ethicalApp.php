@@ -20,7 +20,7 @@ if (isset($_POST['register'])) {
 
     /*$targetDir = "C:/xampp/htdocs/CMM007-ExperimentApproval/docUpload/";*/
 
-    $targetDir = "C:/inetpub/wwwroot/CMM007-ExperimentApproval/docUpload/";
+    $targetDir = "C:/inetpub/wwwroot/1808957/CMM007-ExperimentApproval/docUpload/";
     $fileName1 = basename($_FILES["file1"]["name"]);
     $targetFilePath1 = $targetDir . $fileName1;
     $fileName2 = basename($_FILES["file2"]["name"]);

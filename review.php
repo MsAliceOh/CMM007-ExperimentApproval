@@ -25,6 +25,10 @@ if (isset($_POST['accept'])) {
                 while ($row = mysqli_fetch_assoc($result3)) {
                     $review2Dec = $row['review2Dec'];
 
+                    if (is_null($review2Dec)) {
+                        header ('location: EAOHomepage.php');
+                    }
+
                     if ($review2Dec == 1){
                         $query4 = "UPDATE applicationdec SET finalDec = 1 WHERE appID = '$appID'";
                         mysqli_query($db, $query4);
@@ -33,9 +37,6 @@ if (isset($_POST['accept'])) {
                     if ($review2Dec == 0) {
                         $query5 = "UPDATE applicationdec SET finalDec = 0 WHERE appID = '$appID'";
                         mysqli_query($db, $query5);
-                        header ('location: EAOHomepage.php');
-                    }
-                    else {
                         header ('location: EAOHomepage.php');
                     }
                 }
@@ -50,6 +51,10 @@ if (isset($_POST['accept'])) {
             while ($row = mysqli_fetch_assoc($result7)) {
                 $review1Dec = $row['review1Dec'];
 
+                if (is_null($review1Dec)) {
+                    header ('location: EAOHomepage.php');
+                }
+
                 if ($review1Dec == 1){
                     $query8 = "UPDATE applicationdec SET finalDec = 1 WHERE appID = '$appID'";
                     mysqli_query($db, $query8);
@@ -60,15 +65,12 @@ if (isset($_POST['accept'])) {
                     mysqli_query($db, $query9);
                     header ('location: EAOHomepage.php');
                 }
-                else {
-                    header ('location: EAOHomepage.php');
-                }
             }
         }
     }
 }
 
-else if (isset($_POST['decline'])) {
+if (isset($_POST['decline'])) {
     $reviewer = $_SESSION['user'];
     $appID = mysqli_real_escape_string($db, $_POST['appID']);
     $comments = mysqli_real_escape_string($db, $_POST['comment']);
@@ -89,17 +91,13 @@ else if (isset($_POST['decline'])) {
             while ($row = mysqli_fetch_assoc($result3)) {
                 $review2Dec = $row['review2Dec'];
 
-                if ($review2Dec == 1){
+                if (is_null($review2Dec)) {
+                    header ('location: EAOHomepage.php');
+                }
+
+                else {
                     $query4 = "UPDATE applicationdec SET finalDec = 0 WHERE appID = '$appID'";
                     mysqli_query($db, $query4);
-                    header ('location: EAOHomepage.php');
-                }
-                if ($review2Dec == 0) {
-                    $query5 = "UPDATE applicationdec SET finalDec = 0 WHERE appID = '$appID'";
-                    mysqli_query($db, $query5);
-                    header ('location: EAOHomepage.php');
-                }
-                else {
                     header ('location: EAOHomepage.php');
                 }
             }
@@ -114,17 +112,13 @@ else if (isset($_POST['decline'])) {
             while ($row = mysqli_fetch_assoc($result7)) {
                 $review1Dec = $row['review1Dec'];
 
-                if ($review1Dec == 1){
-                    $query8 = "UPDATE applicationdec SET finalDec = 0 WHERE appID = '$appID'";
-                    mysqli_query($db, $query8);
+                if (is_null($review1Dec)) {
                     header ('location: EAOHomepage.php');
                 }
-                if ($review1Dec == 0) {
-                    $query9 = "UPDATE applicationdec SET finalDec = 0 WHERE appID = '$appID'";
-                    mysqli_query($db, $query9);
-                    header ('location: EAOHomepage.php');
-                }
+
                 else {
+                    $query8 = "UPDATE applicationdec SET finalDec = 1 WHERE appID = '$appID'";
+                    mysqli_query($db, $query8);
                     header ('location: EAOHomepage.php');
                 }
             }

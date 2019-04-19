@@ -86,15 +86,15 @@ include('ethicalApp.php');
                 </div>
                 <div class="input">
                     <label>Project Outline & Proposed Research methods</label>
-                    <input type="file" name="file1" id = "file1">
+                    <input type="file" name="file1">
                 </div>
                 <div class="input">
                     <label>Consent Forms</label>
-                    <input type="file" name="file2" id="file2">
+                    <input type="file" name="file2">
                 </div>
                 <div class="input">
                     <label>Additional Documentation</label>
-                    <input type="file" name="file3" id="file3">
+                    <input type="file" name="file3">
                 </div>
                 <div class="input">
                     <label>Password</label>

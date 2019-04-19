@@ -138,40 +138,71 @@ if ( !isset( $_SESSION['user'])) {
 
                 $query3 = "SELECT * FROM application, applicationdec WHERE application.stID = '$username' AND application.appID = applicationdec.appID";
                 $result3 = mysqli_query($db, $query3);
-                while ($row = $result3 -> fetch_assoc()) {
+                while ($row = $result3->fetch_assoc()) {
                     $r1 = $row['review1Dec'];
                     $r2 = $row['review2Dec'];
                     $r1c = $row['review1Com'];
                     $r2c = $row['review2Com'];
                 }
 
-                if(is_null($r1)) {
-                    echo "<div id = ".'OS'.">
+                if (is_null($r1)) {
+                    echo "<div id = " . 'OS' . ">
             <p>Application Decision Outstanding</p>
             </div>";
-                }
-                else if(is_null($r2)) {
-                    echo "<div id = ".'OS'.">
+                } else if (is_null($r2)) {
+                    echo "<div id = " . 'OS' . ">
             <p>Application Decision Outstanding</p>
             </div>";
-                }
-                else if($r1 === 0 and $r2 === 0) {
-                    echo "<div id = ".'acc'.">
+                } else if ($r1 == 1 && $r2 == 1) {
+                    echo "<div id = " . 'acc' . ">
             <p>Application Approval Accepted</p>
         </div>";
-                }
-                else if($r1 === 1 and $r2 === 0) {
-                    echo "<div id = ".'dec'.">
-            <p>Application Approval Rejected</p>
+                    echo "<h2>Reviewer 1 Comments: </h2>
+            <p>";
+                    echo $r1c;
+                    "</p>";
+                    echo "<h2>Reviewer 2 Comments: </h2>
+            <p>";
+                    echo $r2c;
+                    "</p>";
+                } else if ($r1 == 1 && $r2 == 0) {
+                    echo "<div id = " . 'dec' . ">
+            <p>Application Approval Declined</p>
         </div>";
-                }
-                else if($r1 === 0 and $r2 === 1) {
-                    echo "<div id = ".'dec'.">
-            <p>Application Approval Rejected</p>
+                    echo "<h2>Reviewer 1 Comments: </h2>
+            <p>";
+                    echo $r1c;
+                    "</p>";
+                    echo "<h2>Reviewer 2 Comments: </h2>
+            <p>";
+                    echo $r2c;
+                    "</p>";
+                } else if ($r1 == 0 && $r2 == 1) {
+                    echo "<div id = " . 'dec' . ">
+            <p>Application Approval Declined</p>
         </div>";
+                    echo "<h2>Reviewer 1 Comments: </h2>
+            <p>";
+                    echo $r1c;
+                    "</p>";
+                    echo "<h2>Reviewer 2 Comments: </h2>
+            <p>";
+                    echo $r2c;
+                    "</p>";
+                } else if ($r1 == 0 && $r2 == 0) {
+                    echo "<div id = " . 'dec' . ">
+            <p>Application Approval Declined</p>
+        </div>";
+                    echo "<h2>Reviewer 1 Comments: </h2>
+            <p>";
+                    echo $r1c;
+                    "</p>";
+                    echo "<h2>Reviewer 2 Comments: </h2>
+            <p>";
+                    echo $r2c;
+                    "</p>";
                 }
             }
-
             ?>
 
         </div>

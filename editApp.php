@@ -67,7 +67,6 @@ if ( !isset( $_SESSION['user'])) {
             $outline = $row['outline'];
             $consent = $row['consent'];
             $add = $row['additionalDocs'];
-        }
         ?>
 
         <form method = "post" action = "edit.php" enctype="multipart/form-data">
@@ -114,6 +113,7 @@ if ( !isset( $_SESSION['user'])) {
 
         </form>
 
+        <?php } ?>
     </section>
 
 </main>
