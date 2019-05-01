@@ -117,7 +117,7 @@ if (isset($_POST['decline'])) {
                 }
 
                 else {
-                    $query8 = "UPDATE applicationdec SET finalDec = 1 WHERE appID = '$appID'";
+                    $query8 = "UPDATE applicationdec SET finalDec = 0 WHERE appID = '$appID'";
                     mysqli_query($db, $query8);
                     header ('location: EAOHomepage.php');
                 }

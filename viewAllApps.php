@@ -101,34 +101,33 @@ if ( !isset( $_SESSION['user'])) {
             <tr>
                 <td>StudentID</td>
                 <td>ApplicationID</td>
+                <td>Title</td>
                 <td>Reviewer 1</td>
+                <td>Reviewer 2</td>
                 <td>Reviewer 1 Decision</td>
                 <td>Reviewer 1 Comments</td>
-                <td>Reviewer 2</td>
                 <td>Reviewer 2 Decision</td>
                 <td>Reviewer 2 Comments</td>
             </tr>
             </thead>
-                <?php
-                $query = "SELECT S.stID, A.appID, A.stID, A.title, R.appID, R.Reviewer1, R.Reviewer2, D.appID, D.review1Dec, D.review1Com, D.review2Dec, D.review2Com
-                FROM student S, application A, applicationreferal R, applicationdec D
-                WHERE S.stID = A.stID AND A.appID = R.appID AND R.appID = D.appID";
-                $result = mysqli_query($db, $query);
-                while ($row = mysqli_fetch_array($result)) {
+            <?php
+            $query2 = "SELECT * FROM viewallapps";
+            $result2 = mysqli_query($db, $query2);
+            while ($row = mysqli_fetch_array($result2)) {
                 ?>
-            <tr>
-                <td><?php echo $row['stID'] ?></td>
-                <td><?php echo $row['appID'] ?></td>
-                <td><?php echo $row['Reviewer1'] ?></td>
-                <td><?php echo $row['review1Dec'] ?></td>
-                <td><?php echo $row['review1Com'] ?></td>
-                <td><?php echo $row['Reviewer2'] ?></td>
-                <td><?php echo $row['review1Dec'] ?></td>
-                <td><?php echo $row['review1Com'] ?></td>
-            </tr>
+                <tr>
+                    <td><?php echo $row['stID'] ?></td>
+                    <td><?php echo $row['appID'] ?></td>
+                    <td><?php echo $row['title'] ?></td>
+                    <td><?php echo $row['Reviewer1'] ?></td>
+                    <td><?php echo $row['Reviewer2'] ?></td>
+                    <td><?php echo $row['review1Dec'] ?></td>
+                    <td><?php echo $row['review1Com'] ?></td>
+                    <td><?php echo $row['review2Dec'] ?></td>
+                    <td><?php echo $row['review2Com'] ?></td>
+                </tr>
                 <?php
-                }?>
-
+            }?>
         </table>
 
     </section>
